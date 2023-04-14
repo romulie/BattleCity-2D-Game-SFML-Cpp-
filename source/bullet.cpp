@@ -42,13 +42,13 @@
                     }
                 /// or powerful bullets destroy concrete
                     if (power > 0){
-                        if      (dy > 0) {y = i*SPRITE_H-SPRITE_H; life = false; tileMap[i][j] = '0'; return;}
-                        else if (dy < 0) {y = i*SPRITE_H+SPRITE_H; life = false; tileMap[i][j] = '0'; return;}
-                        else if (dx > 0) {x = j*SPRITE_W-SPRITE_W; life = false; tileMap[i][j] = '0'; return;}
-                        else if (dx < 0) {x = j*SPRITE_W+SPRITE_W; life = false; tileMap[i][j] = '0'; return;}
+                        if      (dy > 0) {y = i*SPRITE_H-SPRITE_H; life = false; tileMap[i][j] = 'u'; return;}
+                        else if (dy < 0) {y = i*SPRITE_H+SPRITE_H; life = false; tileMap[i][j] = 'd'; return;}
+                        else if (dx > 0) {x = j*SPRITE_W-SPRITE_W; life = false; tileMap[i][j] = 'l'; return;}
+                        else if (dx < 0) {x = j*SPRITE_W+SPRITE_W; life = false; tileMap[i][j] = 'r'; return;}
                     }
                 }
-                /// bullet can destroy half-a-brick:
+                /// bullet can destroy full brick to half-a-brick:
                 if (tileMap[i][j] == '*'){
                     if      (dy > 0) {y = i*SPRITE_H-SPRITE_H; life = false; tileMap[i][j] = 'U'; return;} // half-a-brick hit from top
                     else if (dy < 0) {y = i*SPRITE_H+SPRITE_H; life = false; tileMap[i][j] = 'D'; return;} // half-a-brick hit from bottom
@@ -56,6 +56,12 @@
                     else if (dx < 0) {x = j*SPRITE_W+SPRITE_W; life = false; tileMap[i][j] = 'R'; return;} // half-a-brick hit from right
                 }/// and destroy half-a-brick completely:
                 if (tileMap[i][j] == 'U' || tileMap[i][j] == 'D' || tileMap[i][j] == 'L' || tileMap[i][j] == 'R'){
+                    if      (dy > 0) {y = i*SPRITE_H-SPRITE_H; life = false; tileMap[i][j] = '0'; return;}
+                    else if (dy < 0) {y = i*SPRITE_H+SPRITE_H; life = false; tileMap[i][j] = '0'; return;}
+                    else if (dx > 0) {x = j*SPRITE_W-SPRITE_W; life = false; tileMap[i][j] = '0'; return;}
+                    else if (dx < 0) {x = j*SPRITE_W+SPRITE_W; life = false; tileMap[i][j] = '0'; return;}
+                }/// and destroy half-a-brick of concrete completely:
+                if (tileMap[i][j] == 'u' || tileMap[i][j] == 'd' || tileMap[i][j] == 'l' || tileMap[i][j] == 'r'){
                     if      (dy > 0) {y = i*SPRITE_H-SPRITE_H; life = false; tileMap[i][j] = '0'; return;}
                     else if (dy < 0) {y = i*SPRITE_H+SPRITE_H; life = false; tileMap[i][j] = '0'; return;}
                     else if (dx > 0) {x = j*SPRITE_W-SPRITE_W; life = false; tileMap[i][j] = '0'; return;}

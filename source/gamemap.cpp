@@ -6,7 +6,9 @@ const int HEIGHT_MAP = 25;
 const int WIDTH_MAP = 25;
 
 /// Maps of the game
-/// Cannot step on:     * - BRICK, U/D/R/L - half-a-brick hit from U/D/R/L, # - CONCRETE, W - WATER, 1 - HEADQUARTERS
+/// Cannot step on:     * - BRICK, U/D/R/L - half-a-brick hit from U/D/R/L,
+/// Cannot step on:     # - CONCRETE, u/d/r/l - - half-a-brick hit from U/D/R/L,
+/// Cannot step on:     W - WATER, 1 - HEADQUARTERS
 /// Can step on:        G - GREEN BUSHES
 /// Pick-up items:      S - STAR, B - FreezingBomb, P - GUN, increase bullet power(can destroy concrete)
 

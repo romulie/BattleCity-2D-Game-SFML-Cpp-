@@ -21,7 +21,8 @@
             for (int j = x/SPRITE_W; j < x/SPRITE_W + 1; ++j){
                  /// solid objects don't let to step on them
                 if (tileMap[i][j] == '*' || tileMap[i][j] == '#' || tileMap[i][j] == 'W' ||
-                    tileMap[i][j] == 'U' || tileMap[i][j] == 'D' || tileMap[i][j] == 'L' || tileMap[i][j] == 'R'){
+                    tileMap[i][j] == 'U' || tileMap[i][j] == 'D' || tileMap[i][j] == 'L' || tileMap[i][j] == 'R' ||
+                    tileMap[i][j] == 'u' || tileMap[i][j] == 'd' || tileMap[i][j] == 'l' || tileMap[i][j] == 'r'){
                     if (dy > 0) y = i*SPRITE_H-SPRITE_H;
                     if (dy < 0) y = i*SPRITE_H+SPRITE_H;
                     if (dx > 0) x = j*SPRITE_W-SPRITE_W;

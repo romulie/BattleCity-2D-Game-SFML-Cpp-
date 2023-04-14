@@ -25,12 +25,20 @@
         for (int j = 0; j < WIDTH_MAP; ++j){
             if (mask.find(Entity::tileMap[i][j]) != std::string::npos) continue; // do not draw masked items (e.g. bushes)
             int offsetX = 0, offsetY = 0;
+            ///!?! create map with textures (map<char, sf::IntRect>)
+            /// full half-a-bricks
             if      (Entity::tileMap[i][j] == '*') mapSprite.setTextureRect(sf::IntRect(256, 0, SPRITE_W, SPRITE_H)); // Bricks
             else if (Entity::tileMap[i][j] == 'U') {mapSprite.setTextureRect(sf::IntRect(256, 0, SPRITE_W, SPRITE_H/2)); offsetY = SPRITE_H/2 + 1;}
             else if (Entity::tileMap[i][j] == 'R') {mapSprite.setTextureRect(sf::IntRect(256, 0, SPRITE_W/2, SPRITE_H));}
             else if (Entity::tileMap[i][j] == 'D') {mapSprite.setTextureRect(sf::IntRect(256, 0, SPRITE_W, SPRITE_H/2));}
             else if (Entity::tileMap[i][j] == 'L') {mapSprite.setTextureRect(sf::IntRect(256, 0, SPRITE_W/2, SPRITE_H)); offsetX = SPRITE_W/2 + 1;} // half-a-brick{mapSprite.setTextureRect(sf::IntRect(320, 0, -SPRITE_W, SPRITE_H));}
+            /// full and half-a-concrete-blocks
             else if (Entity::tileMap[i][j] == '#') mapSprite.setTextureRect(sf::IntRect(256, 16, SPRITE_W, SPRITE_H)); // Concrete
+            else if (Entity::tileMap[i][j] == 'u') {mapSprite.setTextureRect(sf::IntRect(256, 16, SPRITE_W, SPRITE_H/2)); offsetY = SPRITE_H/2 + 1;}
+            else if (Entity::tileMap[i][j] == 'r') {mapSprite.setTextureRect(sf::IntRect(256, 16, SPRITE_W/2, SPRITE_H));}
+            else if (Entity::tileMap[i][j] == 'd') {mapSprite.setTextureRect(sf::IntRect(256, 16, SPRITE_W, SPRITE_H/2));}
+            else if (Entity::tileMap[i][j] == 'l') {mapSprite.setTextureRect(sf::IntRect(256, 16, SPRITE_W/2, SPRITE_H)); offsetX = SPRITE_W/2 + 1;}
+            /// other items
             else if (Entity::tileMap[i][j] == 'G') mapSprite.setTextureRect(sf::IntRect(272, 32, SPRITE_W, SPRITE_H)); // Green Bushes
             else if (Entity::tileMap[i][j] == 'W') mapSprite.setTextureRect(sf::IntRect(256, 32, SPRITE_W, SPRITE_H)); // Water
             else if (Entity::tileMap[i][j] == 'S') mapSprite.setTextureRect(sf::IntRect(304, 112, SPRITE_W, SPRITE_H)); // Star
